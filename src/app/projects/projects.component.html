@@ -1,0 +1,17 @@
+<div class="w-64 h-screen bg-black p-5 mt-14 rounded-tr-2xl pt-14">
+  <h2 class="text-xl mb-5 text-white">YOUR PROJECTS</h2>
+  <button
+    (click)="addNewProject()"
+    class="px-4 py-2 text-white bg-zinc-600 bg-opacity-50 rounded-lg hover:bg-opacity-100 transition-opacity duration-300"
+  >
+    + Add Project
+  </button>
+  @for (project of projects; track $index) {
+  <button
+    (click)="showProjectInfo(project)"
+    class="mt-2 w-full text-left text-white py-2"
+  >
+    {{ project.title }}
+  </button>
+}
+</div>

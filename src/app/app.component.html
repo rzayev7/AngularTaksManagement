@@ -1,0 +1,19 @@
+<main class="flex h-screen">
+  <app-projects
+    [projects]="projects"
+    (addProject)="handleAddEvent()"
+    (projectInfo)="showProjectInfo($event)"
+    
+  ></app-projects>
+
+  @if(showProject){
+  <app-project-info (removeProject)="removeTab($event)" class="mt-24 mx-auto p-4 w-2/3 bg-white shadow-lg rounded-lg"  [project]="projectInfo"></app-project-info>
+  }@else if(!shownNewComponent) {
+  <app-no-project-selected (addProject)="handleAddEvent()" class="flex-grow" />
+  }@else{
+  <app-new-project
+    (cancelProject)="handleCancelNewProjcet()"
+    (saveProject)="handleSaveEvent()"
+  ></app-new-project>
+  }
+</main>
